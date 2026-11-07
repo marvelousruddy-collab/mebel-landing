@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мебель точно в размер вашей ниши и проёма</title>
+
+    <!-- Google Fonts & Fontshare -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-page: #FBF9F5;
+            --bg-card: #FFFFFF;
+            --bg-subtle: #F3EEE5;
+            --text-main: #181818;
+            --text-muted: #5E5D59;
+            --accent-yellow: #EAA838;
+            --accent-yellow-hover: #D89525;
+            --accent-wood: #D4B996;
+            --border-light: rgba(24, 24, 24, 0.08);
+            --border-medium: rgba(24, 24, 24, 0.16);
+            --shadow-soft: 0 12px 36px rgba(24, 24, 24, 0.06);
+            --shadow-card: 0 20px 48px rgba(24, 24, 24, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* --- Header --- */
+        .site-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 0;
+            z-index: 20;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-logo span {
+            color: var(--accent-yellow);
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-badge {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: rgba(24, 24, 24, 0.04);
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* --- Hero Section (Сплит 60/40) --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 110px;
+            padding-bottom: 70px;
+            background: 
+                radial-gradient(circle at 90% 15%, rgba(234, 168, 56, 0.09) 0%, transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(212, 185, 150, 0.14) 0%, transparent 50%),
+                var(--bg-page);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Левая часть: 60% */
+        .hero-info {
+            max-width: 680px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #8C6218;
+            background: rgba(234, 168, 56, 0.15);
+            padding: 8px 16px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--accent-yellow);
+        }
+
+        .hero-title {
+            font-family: 'Plus Jakarta Sans', 'Satoshi', sans-serif;
+            font-size: clamp(34px, 4.4vw, 58px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            color: var(--text-main);
+            margin-bottom: 22px;
+        }
+
+        .hero-desc {
+            font-size: clamp(16px, 1.4vw, 19px);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* Сетка буллитов */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px 20px;
+            padding: 22px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--bg-subtle);
+            color: #8C6218;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Кнопки вызова */
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14.5px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 17px 32px;
+            border-radius: 999px;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        /* Желтая скругленная таблетка */
+        .btn-primary {
+            background-color: var(--accent-yellow);
+            color: #1A1A1A;
+            border: 1px solid var(--accent-yellow);
+            box-shadow: 0 8px 24px rgba(234, 168, 56, 0.28);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-yellow-hover);
+            border-color: var(--accent-yellow-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(234, 168, 56, 0.38);
+        }
+
+        /* Вторая графитовая кнопка */
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1.5px solid var(--border-medium);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-main);
+            color: #FFFFFF;
+            border-color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .micro-guarantee {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .micro-guarantee svg {
+            width: 15px;
+            height: 15px;
+            fill: #34A853;
+        }
+
+        /* Правая часть: 40% визуальный макет */
+        .hero-visual {
+            position: relative;
+            width: 100%;
+        }
+
+        .visual-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+        }
+
+        .mockup-display {
+            width: 100%;
+            height: 380px;
+            background: 
+                linear-gradient(180deg, #F9F7F2 0%, #EDE7DD 100%);
+            border-radius: 14px;
+            border: 1px solid var(--border-light);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Имитация встроенного шкафа под нишу */
+        .cabinet-mockup {
+            width: 72%;
+            height: 90%;
+            background: #FFFFFF;
+            border: 2px solid #332B25;
+            border-bottom: 4px solid #332B25;
+            display: flex;
+            position: relative;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+        }
+
+        .cabinet-door {
+            flex: 1;
+            border-right: 1px solid rgba(0,0,0,0.12);
+            position: relative;
+            background: linear-gradient(90deg, #FAF8F5 0%, #FFFFFF 100%);
+        }
+
+        .cabinet-door:last-child {
+            border-right: none;
+        }
+
+        .door-handle {
+            position: absolute;
+            width: 3px;
+            height: 52px;
+            background: #2B2D2F;
+            border-radius: 2px;
+            top: 48%;
+            right: 10px;
+        }
+
+        .door-wood {
+            background: 
+                repeating-linear-gradient(45deg, #DFCEBA, #DFCEBA 2px, #D4B996 2px, #D4B996 8px);
+        }
+
+        .dimension-label {
+            position: absolute;
+            background: var(--text-main);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .dim-top {
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dim-side {
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        /* Плавающие бейджи доказательств */
+        .float-badge {
+            position: absolute;
+            background: #FFFFFF;
+            padding: 12px 18px;
+            border-radius: 12px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.09);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+            animation: floatSlow 4s ease-in-out infinite alternate;
+        }
+
+        .badge-sketchup {
+            top: -12px;
+            left: -12px;
+        }
+
+        .badge-materials {
+            bottom: -16px;
+            right: -10px;
+            animation-delay: -2s;
+        }
+
+        .badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--bg-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .badge-text strong {
+            display: block;
+            font-size: 13px;
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .badge-text span {
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+
+        @keyframes floatSlow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-6px); }
+        }
+
+        /* --- Адаптивность под планшеты и смартфоны --- */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+
+            .hero {
+                padding-top: 96px;
+            }
+
+            .hero-info {
+                max-width: 100%;
+            }
+
+            .hero-visual {
+                max-width: 520px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .float-badge {
+                position: static;
+                margin-top: 10px;
+                box-shadow: none;
+                border: 1px solid var(--border-light);
+            }
+
+            .badge-sketchup, .badge-materials {
+                margin: 10px 0 0 0;
+            }
+
+            .site-header {
+                padding: 16px 0;
+            }
+
+            .header-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="brand-logo">МЕБЕЛЬ<span>.</span>ПРОЁМ</a>
+            <div class="header-meta">
+                <span class="header-badge">Москва и МО • без выходных</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Первый экран (Hero 60/40) -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    
+                    <!-- 60% — Смысловой блок -->
+                    <div class="hero-info">
+                        <div class="eyebrow">Корпусная мебель на заказ • Индивидуальный раскрой</div>
+                        
+                        <h1 class="hero-title">Мебель точно в размер вашей ниши и проёма</h1>
+                        
+                        <p class="hero-desc">
+                            Выезжаем к вам с чемоданом материалов и лазерным замерщиком. Консультируем на месте, учитываем трубы и неровности стен, а 3D-проект строим прямо при вас — без поездок в мебельные салоны.
+                        </p>
+
+                        <!-- Буллиты преимуществ -->
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Точный замер лазером без щелей
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Чемодан из 120+ живых фасадов
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                3D-визуализация в масштабе при вас
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Срок изготовления от 3 недель
+                            </div>
+                        </div>
+
+                        <!-- Целевые действия -->
+                        <div class="hero-cta">
+                            <a href="https://t.me/" target="_blank" class="btn btn-primary">
+                                Вызвать замерщика с образцами
+                            </a>
+                            <a href="https://t.me/" target="_blank" class="btn btn-secondary">
+                                Прислать размеры в Telegram
+                            </a>
+                        </div>
+
+                        <div class="micro-guarantee">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                            Фиксируем смету в договоре: цена не вырастет в процессе монтажа
+                        </div>
+                    </div>
+
+                    <!-- 40% — Визуальное подтверждение -->
+                    <div class="hero-visual">
+                        <div class="visual-card">
+                            
+                            <!-- Верхний бейдж: 3D моделирование -->
+                            <div class="float-badge badge-sketchup">
+                                <div class="badge-icon">📐</div>
+                                <div class="badge-text">
+                                    <strong>3D-проект на объекте</strong>
+                                    <span>В SketchUp под ваши розетки</span>
+                                </div>
+                            </div>
+
+                            <!-- Стилизованный чертеж / рендер шкафа в нише -->
+                            <div class="mockup-display">
+                                <div class="dimension-label dim-top">Ширина: 2 485 мм (до 1 мм)</div>
+                                <div class="dimension-label dim-side">В потолок: 2 710 мм</div>
+
+                                <div class="cabinet-mockup">
+                                    <div class="cabinet-door">
+                                        <div class="door-handle"></div>
+                                    </div>
+                                    <div class="cabinet-door door-wood">
+                                        <div class="door-handle"></div>
+                                    </div>
+                                    <div class="cabinet-door">
+                                        <div class="door-handle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Нижний бейдж: образцы -->
+                            <div class="float-badge badge-materials">
+                                <div class="badge-icon">🧰</div>
+                                <div class="badge-text">
+                                    <strong>Чемодан образцов</strong>
+                                    <span>EGGER, фасадные эмали, шпон</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+
