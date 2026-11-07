@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мебель точно в размер пространства</title>
+
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-main: #140d09;
+            --bg-card: #1c1410;
+            --accent-gold: #c79a65;
+            --accent-light: #e0bd8c;
+            --text-primary: #f1e9da;
+            --text-muted: rgba(241, 233, 218, 0.7);
+            --border-dim: rgba(199, 154, 101, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+
+        /* --- Шапка --- */
+        .site-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 0;
+            z-index: 10;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .header-phone {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent-light);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+        }
+
+        /* --- Первый экран (Hero) --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(199, 154, 101, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(120, 66, 26, 0.15) 0%, transparent 60%),
+                var(--bg-main);
+        }
+
+        .hero-content {
+            max-width: 820px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: clamp(34px, 5.5vw, 68px);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .hero-desc {
+            font-size: clamp(16px, 2vw, 20px);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin-bottom: 36px;
+        }
+
+        /* Лента преимуществ */
+        .features-rail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 28px;
+            padding: 20px 0;
+            margin-bottom: 36px;
+            border-top: 1px solid var(--border-dim);
+            border-bottom: 1px solid var(--border-dim);
+        }
+
+        .feature-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+
+        .feature-item::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent-gold);
+        }
+
+        /* Кнопки */
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-light);
+            color: #1c1815;
+            border-color: var(--accent-light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-primary);
+            border-color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border-color: rgba(241, 233, 218, 0.4);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+        }
+
+        /* --- Секция заявки --- */
+        .order-section {
+            padding: 100px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-dim);
+        }
+
+        .order-box {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .order-box h2 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: clamp(26px, 3.5vw, 38px);
+            margin-bottom: 14px;
+        }
+
+        .order-box p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .calc-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            background: rgba(20, 13, 9, 0.6);
+            border: 1px solid var(--border-dim);
+            color: var(--text-primary);
+            font-size: 15px;
+            border-radius: 2px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-gold);
+        }
+
+        @media (max-width: 760px) {
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .features-rail {
+                gap: 10px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="brand-logo">Мастерская мебели</a>
+            <a href="#order" class="header-phone">Рассчитать проект</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="eyebrow">Корпусная мебель на заказ</span>
+                    <h1 class="hero-title">Мебель точно в размер вашей ниши и проёма</h1>
+                    <p class="hero-desc">Решаем проблему нестандартных пространств, когда готовая мебель из масс-маркета не встаёт или оставляет нелепые щели. Индивидуальный проект и производство за 3 недели.</p>
+                    
+                    <div class="features-rail">
+                        <span class="feature-item">Под любые размеры</span>
+                        <span class="feature-item">Срок от 3 недель</span>
+                        <span class="feature-item">Без переплат за сетку</span>
+                        <span class="feature-item">Прямой диалог с мастером</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#order" class="btn btn-primary">Рассчитать стоимость</a>
+                        <a href="#order" class="btn btn-secondary">Задать вопрос</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order" class="order-section">
+            <div class="container">
+                <div class="order-box">
+                    <h2>У вас нестандартный проем?</h2>
+                    <p>Опишите задачу или прикрепите примерные габариты — мы рассчитаем стоимость и подскажем инженерное решение.</p>
+                    <form class="calc-form" onsubmit="event.preventDefault(); alert('Форма готова к связке с вашим Telegram-ботом');">
+                        <input type="text" class="form-input" placeholder="Ваше имя" required>
+                        <input type="tel" class="form-input" placeholder="Телефон или Telegram" required>
+                        <textarea class="form-input" rows="3" placeholder="Какие размеры или какую задачу нужно решить?"></textarea>
+                        <button type="submit" class="btn btn-primary">Отправить на расчет</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
